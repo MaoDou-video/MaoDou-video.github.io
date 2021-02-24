@@ -1,37 +1,71 @@
-## Welcome to GitHub Pages
+# ghost-theme-H2O
 
-You can use the [editor on GitHub](https://github.com/MaoDou-video/MaoDou-video.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+这是jekyll主题H2O的Ghost移植版，[原版项目](https://github.com/kaeyleo/jekyll-theme-H2O)。
+ghost compatible H2O theme, fork from [kaeyleo/jekyll-theme-H2O](https://github.com/kaeyleo/jekyll-theme-H2O).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+此移植版本基于jekyll-theme-H2O comment 46066af。
+This version is based on the comment 46066af of jekyll-theme-H2O。
 
-### Markdown
+### Documents
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#### [查看新手入门与使用文档 Guides and Documents → ](DOCUMENTS.md)
 
-```markdown
-Syntax highlighted code block
+### Preview
 
-# Header 1
-## Header 2
-### Header 3
+#### [原版在线预览 Live Demo of Jekyll Version → ](http://liaokeyu.com/)
 
-- Bulleted
-- List
+![](screenshot/ghost-theme-h2o-realhome.png)
 
-1. Numbered
-2. List
+![](screenshot/ghost-theme-h2o-realm.png)
 
-**Bold** and _Italic_ and `Code` text
+如果你喜欢这个博客模板，请在右上角star一下，非常感谢～
 
-[Link](url) and ![Image](src)
-```
+If you like this theme or using it, please give a ⭐️ for motivation ;)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Features and Progress 特性以及移植进度
 
-### Jekyll Themes
+#### CN
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MaoDou-video/MaoDou-video.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- [x] 代码高亮
+- [x] 夜间模式
+- [x] Disqus评论系统
+- [x] 粉蓝两种主题色
+- [x] 头图个性化底纹
+- [x] 响应式设计
+- [x] 社交图标
+- [x] SEO标题优化
+- [x] 文章标签索引
+- [ ] 博客文章搜索
+- [x] 复制文章内容自动添加版权
 
-### Support or Contact
+#### EN
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- [x] Code highlight
+- [x] Night mode
+- [x] Disqus Comment System
+- [x] Theme color: Blue & Pink
+- [x] Hero Patterns
+- [x] Responsive design
+- [x] SNS Icon
+- [x] Title SEO
+- [x] Tags system
+- [ ] Search
+- [x] Copyright text on copy event
+
+### Contribution 贡献
+
+Any types of contribution are welcome. Thanks.
+
+接受各种形式的贡献，包括不限于提交问题与需求，修复代码。等待您的 ```Pull Request```
+
+### License 许可证
+
+Ghost-Theme-H2O is licensed under [MIT](https://github.com/eastpiger/ghost-theme-H2O/blob/master/LICENSE).
+
+Jekyll-Theme-H2O is licensed under [MIT](https://github.com/kaeyleo/jekyll-theme-H2O/blob/master/LICENSE).
+
+### Links 链接
+
+- [eastpiger/ghost-theme-H2O](https://github.com/eastpiger/ghost-theme-H2O)
+- [Ghost](https://ghost.org/)
+- [kaeyleo/jekyll-theme-H2O](https://github.com/kaeyleo/jekyll-theme-H2O)
