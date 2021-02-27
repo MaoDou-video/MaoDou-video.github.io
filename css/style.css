@@ -171,6 +171,16 @@ button:hover,
 .container {
 	max-width: 1170px;
 }
+.tag-grey {
+    background: #f7f8fa;
+    border-radius: 2px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1;
+}
+
 
 
 /* ========================= TRANSITIONS ========================= */
