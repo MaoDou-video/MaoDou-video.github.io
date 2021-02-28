@@ -3967,7 +3967,13 @@ header.hp_1 .side_links li.user_contrl {
 .banner-text > h2 {
 	font-size: 40px;
 	font-weight: 700;
-	margin-bottom: 36px;
+	margin-bottom: 50px;
+}
+.qrcode {
+	margin-bottom: 3px;
+}
+.starsss {
+	margin-bottom: 15px;
 }
 .banner-text p {
 	color: #fff;
