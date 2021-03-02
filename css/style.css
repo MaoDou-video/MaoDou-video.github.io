@@ -292,7 +292,6 @@ header .container {
 	padding: 0 45px;
 }
 .top_bar {
-	border-bottom: 1px solid #e2ebef;
 	padding: 26px 0;
 }
 .hp_1 .top_bar.scroll {
@@ -684,7 +683,6 @@ nav ul ul li a span {
 
 .vidz_sec {
 	position: relative;
-	border-bottom: 1px solid #e2ebef;
 	padding: 30px 0;
 }
 .vidz_list {
@@ -3979,7 +3977,12 @@ header.hp_1 .side_links li.user_contrl {
 }
 .starsss {
 	margin-top: -20px;
-	margin-bottom: 15px;
+	margin-bottom: -20px;
+	width: 180px;
+}
+.fengge {
+	border-bottom: 1px solid #e2ebef;
+	margin-bottom: 10px;
 }
 .banner-text p {
 	color: #fff;
@@ -4695,9 +4698,6 @@ header.hp_1 .side_links li.user_contrl {
 }
 
 
-.vidz-row .vidz_sec {
-	border-bottom: 1px solid #e2ebef;
-}
 .pop_channels .vidz_sec {
 	border-bottom: 0;
 }
