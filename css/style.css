@@ -173,13 +173,14 @@ button:hover,
 }
 .tag-grey {
     background: #f7f8fa;
-    border-radius: 2px;
-    padding: 8px 12px;
-    font-size: 12px;
+    border-radius: 10px;
+    padding: 4px 6px;
+    font-size: 10px;
     font-weight: 300;
     font-style: normal;
-    line-height: 40px;
-	white-space: nowrap
+    line-height: 25px;
+	white-space: nowrap;
+	color: #747C8D;
 }
 
 
