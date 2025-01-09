@@ -13,6 +13,26 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/video.css">
 
+	<!-- 搜索框样式 -->
+<style>
+	/* 搜索框样式 */
+	.search-bar {
+		width: 100%;
+		max-width: 500px;  /* 控制搜索框的最大宽度 */
+		margin: 20px auto;  /* 上下间距20px，左右自动居中 */
+		padding: 10px;
+		font-size: 16px;
+		border-radius: 20px;
+		border: 1px solid #ccc;
+		display: block;  /* 使其成为块级元素，允许自动居中 */
+	}
+
+	/* 父容器样式，确保其父元素（如 header 或 container）也是居中的 */
+	.container {
+		text-align: center; /* 确保所有元素（包括搜索框）都居中 */
+	}
+</style>
+
 </head>
 
 
@@ -42,6 +62,10 @@
 			
 		</header><!--header end-->
 
+		<!-- 搜索框 -->
+		<input type="text" id="searchInput" class="search-bar" placeholder="输入关键词搜索作品..." onkeyup="filterWorks()" />
+
+
 		<section class="vds-main"><!--作品区-->
 			
 			<div class="vidz-row"><!--💎--><!--分区开始-->
@@ -49,10 +73,10 @@
 				<div class="container">
 					<div class="vidz_sec">
 						<div class="vidz_list">
-							<div class="row">
+							<div class="row" id="worksContainer">
 								
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5bd91b231253642701644577383/v.f100840.mp4">
 											<a title="">
@@ -61,7 +85,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>爷爷手机卡顿的秘密</h3>
+											<h3 class="work-title">爷爷手机卡顿的秘密</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -71,7 +95,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a1d3515b1253642701645276360/v.f100840.mp4">
 											<a title="">
@@ -80,7 +104,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>视频那头的神秘人物</h3>
+											<h3 class="work-title">视频那头的神秘人物</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -90,7 +114,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/1821e8091253642701643968089/v.f100840.mp4">
 											<a title="">
@@ -99,7 +123,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>数据安全医院篇</h3>
+											<h3 class="work-title">数据安全医院篇</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -109,7 +133,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5491585d1253642701644237951/v.f100840.mp4">
 											<a title="">
@@ -118,7 +142,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>东北大学2022创新创业成绩单</h3>
+											<h3 class="work-title">东北大学2022创新创业成绩单</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -128,7 +152,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5293d2dd1253642701644182358/v.f100840.mp4">
 											<a title="">
@@ -137,7 +161,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>管道安全</h3>
+											<h3 class="work-title">管道安全</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -147,7 +171,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5e2a86211253642701644670945/v.f100840.mp4">
 											<a title="">
@@ -156,7 +180,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>海立马瑞利</h3>
+											<h3 class="work-title">海立马瑞利</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -166,7 +190,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5de683091253642701644638859/v.f100840.mp4">
 											<a title="">
@@ -175,7 +199,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>ERAS加速康复外科</h3>
+											<h3 class="work-title">ERAS加速康复外科</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -185,7 +209,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/595e0f781253642701644454072/v.f100840.mp4">
 											<a title="">
@@ -194,7 +218,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>大同幼稚园</h3>
+											<h3 class="work-title">大同幼稚园</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -204,7 +228,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/572dca221253642701644375944/v.f100840.mp4">
 											<a title="">
@@ -213,7 +237,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>中远海运</h3>
+											<h3 class="work-title">中远海运</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -223,7 +247,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5de20e9a1253642701644630429/v.f100840.mp4">
 											<a title="">
@@ -232,7 +256,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>生态基金年会</h3>
+											<h3 class="work-title">生态基金年会</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -242,7 +266,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/575428ad1253642701644399868/v.f100840.mp4">
 											<a title="">
@@ -251,7 +275,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>旺旺水神</h3>
+											<h3 class="work-title">旺旺水神</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -261,7 +285,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/54c4c23b1253642701644262177/v.f100840.mp4">
 											<a title="">
@@ -270,7 +294,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>虎嗅x凯迪拉克</h3>
+											<h3 class="work-title">虎嗅x凯迪拉克</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -280,7 +304,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/626ca7871253642701644818956/v.f100840.mp4">
 											<a title="">
@@ -289,7 +313,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>信美数字化</h3>
+											<h3 class="work-title">信美数字化</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -299,7 +323,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/9d022ae01253642701645051977/v.f100840.mp4">
 											<a title="">
@@ -308,7 +332,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>虎嗅x奔驰EQS</h3>
+											<h3 class="work-title">虎嗅x奔驰EQS</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -318,7 +342,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5719ff5c1253642701644362618/v.f100840.mp4">
 											<a title="">
@@ -327,7 +351,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>观安数据安全</h3>
+											<h3 class="work-title">观安数据安全</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -337,7 +361,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5bc33c3d1253642701644560727/v.f100840.mp4">
 											<a title="">
@@ -346,7 +370,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>科素亚高血压药师教育</h3>
+											<h3 class="work-title">科素亚高血压药师教育</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -356,7 +380,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/501a05fc1253642701644061928/v.f100840.mp4">
 											<a title="">
@@ -365,7 +389,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>卫健委网络安全宣传</h3>
+											<h3 class="work-title">卫健委网络安全宣传</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -375,7 +399,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6017f5de1253642701644719443/v.f100840.mp4">
 											<a title="">
@@ -384,7 +408,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>甲肝疫苗</h3>
+											<h3 class="work-title">甲肝疫苗</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -394,7 +418,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/547d9a7c1253642701644224936/v.f100840.mp4">
 											<a title="">
@@ -403,7 +427,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>我要接种疫苗</h3>
+											<h3 class="work-title">我要接种疫苗</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -413,7 +437,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/56d2b2381253642701644324544/v.f100840.mp4">
 											<a title="">
@@ -422,7 +446,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>观安系统操作</h3>
+											<h3 class="work-title">观安系统操作</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -432,7 +456,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5e2e4bc11253642701644677542/v.f100840.mp4">
 											<a title="">
@@ -441,7 +465,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>丹纳赫中国-DEI Week</h3>
+											<h3 class="work-title">丹纳赫中国-DEI Week</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -451,7 +475,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5490bf5a1253642701644236661/v.f100840.mp4">
 											<a title="">
@@ -460,7 +484,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>六基因甲基化科普视频</h3>
+											<h3 class="work-title">六基因甲基化科普视频</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -470,7 +494,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/603a0ac31253642701644735954/v.f100840.mp4">
 											<a title="">
@@ -479,7 +503,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>独角兽基金开场动画</h3>
+											<h3 class="work-title">独角兽基金开场动画</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -489,7 +513,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/9f354f3d1253642701645135836/v.f100840.mp4">
 											<a title="">
@@ -498,7 +522,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>西藏琼结-第一集</h3>
+											<h3 class="work-title">西藏琼结-第一集</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -508,7 +532,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/62d7777c1253642701644875240/v.f100840.mp4">
 											<a title="">
@@ -517,7 +541,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>西藏琼结-第五集</h3>
+											<h3 class="work-title">西藏琼结-第五集</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -527,7 +551,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/64c23e611253642701644919228/v.f100840.mp4">
 											<a title="">
@@ -536,7 +560,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>西藏琼结-第四集</h3>
+											<h3 class="work-title">西藏琼结-第四集</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -546,7 +570,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5e5315681253642701644698807/v.f100840.mp4">
 											<a title="">
@@ -555,7 +579,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>西藏琼结-第三集</h3>
+											<h3 class="work-title">西藏琼结-第三集</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -565,7 +589,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5283ec3c1253642701644176381/v.f100840.mp4">
 											<a title="">
@@ -574,7 +598,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>西藏琼结-第二集</h3>
+											<h3 class="work-title">西藏琼结-第二集</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -584,7 +608,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a439402b1397757902318334194/v.f100800.mp4">
 											<a title="">
@@ -593,7 +617,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>无破AI融合倒计时</h3>
+											<h3 class="work-title">无破AI融合倒计时</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -603,7 +627,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a6b321071397757902318455024/v.f100800.mp4">
 											<a title="">
@@ -612,7 +636,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>啤酒小镇</h3>
+											<h3 class="work-title">啤酒小镇</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -622,7 +646,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/9fd6dd921397757902318173758/v.f100800.mp4">
 											<a title="">
@@ -631,7 +655,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>苏惠保2025</h3>
+											<h3 class="work-title">苏惠保2025</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -641,7 +665,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5ea8ef2c1397757902317690542/v.f100800.mp4">
 											<a title="">
@@ -650,7 +674,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>寻天新增动画</h3>
+											<h3 class="work-title">寻天新增动画</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -660,7 +684,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/9f5952c91397757902318105916/v.f100800.mp4">
 											<a title="">
@@ -669,7 +693,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>寻天晚宴视频完整版</h3>
+											<h3 class="work-title">寻天晚宴视频完整版</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -679,7 +703,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a24f1a121397757902318291649/v.f100800.mp4">
 											<a title="">
@@ -688,7 +712,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>绿心保护条例</h3>
+											<h3 class="work-title">绿心保护条例</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -698,7 +722,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/65a906361397757902317991926/v.f100800.mp4">
 											<a title="">
@@ -707,7 +731,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>网络安全数据加密医院篇</h3>
+											<h3 class="work-title">网络安全数据加密医院篇</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -717,7 +741,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/afe0fb711397757902318830964/v.f100800.mp4">
 											<a title="">
@@ -726,7 +750,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>有限空间作业安全</h3>
+											<h3 class="work-title">有限空间作业安全</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -736,7 +760,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/9d0529451397757902318007308/v.f100800.mp4">
 											<a title="">
@@ -745,7 +769,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>高空作业安全</h3>
+											<h3 class="work-title">高空作业安全</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -755,7 +779,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/5e86f3d51397757902317674639/v.f100800.mp4">
 											<a title="">
@@ -764,7 +788,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>电气安全</h3>
+											<h3 class="work-title">电气安全</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -774,7 +798,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/e4ff813a387702295915246546/v.f100840.mp4">
 											<a title="">
@@ -783,7 +807,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>信美保险</h3>
+											<h3 class="work-title">信美保险</h3>
 											<a target="_blank" class="tag-grey">保险</a>
 											<a target="_blank" class="tag-grey">抽帧</a>
 											<a target="_blank" class="tag-grey">波普</a>
@@ -793,7 +817,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a5b99c50387702295914802350/v.f100840.mp4">
 											<a title="">
@@ -802,7 +826,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>虎嗅x自如</h3>
+											<h3 class="work-title">虎嗅x自如</h3>
 											<a target="_blank" class="tag-grey">采访</a>
 											<a target="_blank" class="tag-grey">租房</a>
 											<a target="_blank" class="tag-grey">设计</a>
@@ -811,7 +835,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a40b2edf387702295914799512/v.f100840.mp4">
 											<a title="">
@@ -820,7 +844,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>虎嗅x福特EVOS</h3>
+											<h3 class="work-title">虎嗅x福特EVOS</h3>
 											<a target="_blank" class="tag-grey">汽车</a>
 											<a target="_blank" class="tag-grey">车机</a>
 											<a target="_blank" class="tag-grey">系统</a>
@@ -829,7 +853,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a1363959387702295914627309/v.f100840.mp4">
 											<a title="">
@@ -838,7 +862,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>虎嗅x奔驰s500</h3>
+											<h3 class="work-title">虎嗅x奔驰s500</h3>
 											<a target="_blank" class="tag-grey">奔驰</a>
 											<a target="_blank" class="tag-grey">复古</a>
 											<a target="_blank" class="tag-grey">游戏</a>
@@ -847,7 +871,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/280ce6b65285890814843972563/v.f100040.mp4">
 											<a title="">
@@ -856,7 +880,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>离婚冷静期科普RAP</h3>
+											<h3 class="work-title">离婚冷静期科普RAP</h3>
 											<a target="_blank" class="tag-grey">手绘</a>
 											<a target="_blank" class="tag-grey">RAP</a>
 											<a target="_blank" class="tag-grey">快节奏</a>
@@ -866,7 +890,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/25dd15005285890814843894894/v.f100040.mp4">
 											<a title="">
@@ -875,7 +899,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>印象哈尔滨</h3>
+											<h3 class="work-title">印象哈尔滨</h3>
 											<a target="_blank" class="tag-grey">扁平化</a>
 											<a target="_blank" class="tag-grey">城市文化</a>
 											<a target="_blank" class="tag-grey">一镜到底</a>
@@ -885,7 +909,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/19b271115285890814843320994/v.f100040.mp4">
 											<a title="">
@@ -894,7 +918,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>人力资源共享服务中心</h3>
+											<h3 class="work-title">人力资源共享服务中心</h3>
 											<a target="_blank" class="tag-grey">商务风</a>
 											<a target="_blank" class="tag-grey">企业宣传</a>
 											<a target="_blank" class="tag-grey">主讲人</a>
@@ -904,7 +928,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/25611dd95285890814843829619/v.f100040.mp4">
 											<a title="">
@@ -913,7 +937,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>融创</h3>
+											<h3 class="work-title">融创</h3>
 											<a target="_blank" class="tag-grey">卡通角色</a>
 											<a target="_blank" class="tag-grey">房地产</a>
 											<a target="_blank" class="tag-grey">城市文化</a>
@@ -923,7 +947,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/19a521b35285890814843319097/v.f100040.mp4">
 											<a title="">
@@ -932,7 +956,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>华润置地公馆·LOFT</h3>
+											<h3 class="work-title">华润置地公馆·LOFT</h3>
 											<a target="_blank" class="tag-grey">夸张</a>
 											<a target="_blank" class="tag-grey">幽默</a>
 											<a target="_blank" class="tag-grey">竖屏</a>
@@ -942,7 +966,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/20d7b87a5285890814843643788/v.f100040.mp4">
 											<a title="">
@@ -951,7 +975,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>魅影</h3>
+											<h3 class="work-title">魅影</h3>
 											<a target="_blank" class="tag-grey">科技感</a>
 											<a target="_blank" class="tag-grey">黑客</a>
 											<a target="_blank" class="tag-grey">网络安全</a>
@@ -961,7 +985,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/1ea6389b5285890814843562879/v.f100040.mp4">
 											<a title="">
@@ -970,7 +994,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>EMAN-英音双字</h3>
+											<h3 class="work-title">EMAN-英音双字</h3>
 											<a target="_blank" class="tag-grey">科技感</a>
 											<a target="_blank" class="tag-grey">未来技术</a>
 											<a target="_blank" class="tag-grey">假3D场景</a>
@@ -980,7 +1004,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/1ea85c725285890814843566506/v.f100040.mp4">
 											<a title="">
@@ -989,7 +1013,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>石榴的旅程</h3>
+											<h3 class="work-title">石榴的旅程</h3>
 											<a target="_blank" class="tag-grey">民族团结</a>
 											<a target="_blank" class="tag-grey">中国文化</a>
 											<a target="_blank" class="tag-grey">一镜到底</a>
@@ -999,7 +1023,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/e9f007a0387702295915482676/v.f100840.mp4">
 											<a title="">
@@ -1008,7 +1032,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>IFC-方付通</h3>
+											<h3 class="work-title">IFC-方付通</h3>
 											<a target="_blank" class="tag-grey">跨境</a>
 											<a target="_blank" class="tag-grey">贸易</a>
 											<a target="_blank" class="tag-grey">贷款</a>
@@ -1017,7 +1041,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/e50f6436387702295915252464/v.f100840.mp4">
 											<a title="">
@@ -1026,7 +1050,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>油联</h3>
+											<h3 class="work-title">油联</h3>
 											<a target="_blank" class="tag-grey">加油</a>
 											<a target="_blank" class="tag-grey">能源</a>
 											<a target="_blank" class="tag-grey">科技</a>
@@ -1035,7 +1059,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/e0530f39387702295915042929/v.f100840.mp4">
 											<a title="">
@@ -1044,7 +1068,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>万科飞行之旅</h3>
+											<h3 class="work-title">万科飞行之旅</h3>
 											<a target="_blank" class="tag-grey">地产</a>
 											<a target="_blank" class="tag-grey">手绘</a>
 											<a target="_blank" class="tag-grey">卡通</a>
@@ -1053,7 +1077,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/1a1f722a5285890814843381251/v.f100040.mp4">
 											<a title="">
@@ -1062,7 +1086,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>吉利x盒马月饼</h3>
+											<h3 class="work-title">吉利x盒马月饼</h3>
 											<a target="_blank" class="tag-grey">中秋节</a>
 											<a target="_blank" class="tag-grey">中国风</a>
 											<a target="_blank" class="tag-grey">古典</a>
@@ -1072,7 +1096,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/646df3f85285890814844238695/v.f100040.mp4">
 											<a title="">
@@ -1081,7 +1105,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>AION-新年动画</h3>
+											<h3 class="work-title">AION-新年动画</h3>
 											<a target="_blank" class="tag-grey">春节</a>
 											<a target="_blank" class="tag-grey">线条动画</a>
 											<a target="_blank" class="tag-grey">汽车</a>
@@ -1091,7 +1115,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/17dcfb345285890814843292557/v.f100040.mp4">
 											<a title="">
@@ -1100,7 +1124,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>工业4.0</h3>
+											<h3 class="work-title">工业4.0</h3>
 											<a target="_blank" class="tag-grey">科技感</a>
 											<a target="_blank" class="tag-grey">汽车</a>
 											<a target="_blank" class="tag-grey">工业革命</a>
@@ -1110,7 +1134,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/66d26dad5285890814844343417/v.f100040.mp4">
 											<a title="">
@@ -1119,7 +1143,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>能链</h3>
+											<h3 class="work-title">能链</h3>
 											<a target="_blank" class="tag-grey">科技感</a>
 											<a target="_blank" class="tag-grey">数据链</a>
 											<a target="_blank" class="tag-grey">新技术</a>
@@ -1129,7 +1153,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/600b5e0b5285890814844077033/v.f100040.mp4">
 											<a title="">
@@ -1138,7 +1162,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>易骑换电-CN</h3>
+											<h3 class="work-title">易骑换电-CN</h3>
 											<a target="_blank" class="tag-grey">科技感</a>
 											<a target="_blank" class="tag-grey">新能源</a>
 											<a target="_blank" class="tag-grey">电动车</a>
@@ -1148,7 +1172,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/278daa0c5285890814843901426/v.f100040.mp4">
 											<a title="">
@@ -1157,7 +1181,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>上海民防-童声</h3>
+											<h3 class="work-title">上海民防-童声</h3>
 											<a target="_blank" class="tag-grey">儿童画风</a>
 											<a target="_blank" class="tag-grey">可爱</a>
 											<a target="_blank" class="tag-grey">童声</a>
@@ -1167,7 +1191,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/20d9d8735285890814843647345/v.f100040.mp4">
 											<a title="">
@@ -1176,7 +1200,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>龙湖2019营销年会</h3>
+											<h3 class="work-title">龙湖2019营销年会</h3>
 											<a target="_blank" class="tag-grey">插画风</a>
 											<a target="_blank" class="tag-grey">运动</a>
 											<a target="_blank" class="tag-grey">房地产</a>
@@ -1186,7 +1210,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/646b28ce5285890814844233357/v.f100040.mp4">
 											<a title="">
@@ -1195,7 +1219,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>萨摩耶</h3>
+											<h3 class="work-title">萨摩耶</h3>
 											<a target="_blank" class="tag-grey">科技感</a>
 											<a target="_blank" class="tag-grey">数据链</a>
 											<a target="_blank" class="tag-grey">线条动画</a>
@@ -1205,7 +1229,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/1ea969145285890814843568254/v.f100040.mp4">
 											<a title="">
@@ -1214,7 +1238,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>吉红冷运</h3>
+											<h3 class="work-title">吉红冷运</h3>
 											<a target="_blank" class="tag-grey">现代画风</a>
 											<a target="_blank" class="tag-grey">企业宣传</a>
 											<a target="_blank" class="tag-grey">系统界面</a>
@@ -1224,7 +1248,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/19a37fa25285890814843316101/v.f100040.mp4">
 											<a title="">
@@ -1233,7 +1257,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>WTCR房车世界杯-中文版</h3>
+											<h3 class="work-title">WTCR房车世界杯-中文版</h3>
 											<a target="_blank" class="tag-grey">赛车</a>
 											<a target="_blank" class="tag-grey">速度感</a>
 											<a target="_blank" class="tag-grey">角色动画</a>
@@ -1243,7 +1267,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/19a280695285890814843314704/v.f100040.mp4">
 											<a title="">
@@ -1252,7 +1276,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>WTCR房车赛-预告片</h3>
+											<h3 class="work-title">WTCR房车赛-预告片</h3>
 											<a target="_blank" class="tag-grey">预告片</a>
 											<a target="_blank" class="tag-grey">赛车</a>
 											<a target="_blank" class="tag-grey">速度感</a>
@@ -1262,7 +1286,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/671ad8d35285890814844383662/v.f100040.mp4">
 											<a title="">
@@ -1271,7 +1295,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>流流车联网-叮叮当</h3>
+											<h3 class="work-title">流流车联网-叮叮当</h3>
 											<a target="_blank" class="tag-grey">卡通角色</a>
 											<a target="_blank" class="tag-grey">儿童画风</a>
 											<a target="_blank" class="tag-grey">洗脑循环</a>
@@ -1281,7 +1305,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/66d376745285890814844345098/v.f100040.mp4">
 											<a title="">
@@ -1290,7 +1314,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>动态监测系统</h3>
+											<h3 class="work-title">动态监测系统</h3>
 											<a target="_blank" class="tag-grey">Isometric</a>
 											<a target="_blank" class="tag-grey">假3D</a>
 											<a target="_blank" class="tag-grey">工程</a>
@@ -1300,7 +1324,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/233f01955285890814843753943/v.f100040.mp4">
 											<a title="">
@@ -1309,7 +1333,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>TEDx</h3>
+											<h3 class="work-title">TEDx</h3>
 											<a target="_blank" class="tag-grey">概念动画</a>
 											<a target="_blank" class="tag-grey">创意</a>
 											<a target="_blank" class="tag-grey">苏州</a>
@@ -1319,7 +1343,7 @@
 									</div>
 								</div><!--作品结束-->
 								
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/95ad6698387702295914141758/v.f100840.mp4">
 											<a title="">
@@ -1328,7 +1352,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>保护未成年人信息RAP</h3>
+											<h3 class="work-title">保护未成年人信息RAP</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1337,7 +1361,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/9cc33e98387702295914459080/v.f100840.mp4">
 											<a title="">
@@ -1346,7 +1370,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>德科斯米尔移动考勤APP</h3>
+											<h3 class="work-title">德科斯米尔移动考勤APP</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1355,7 +1379,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/e044c4d6387702295915039722/v.f100840.mp4">
 											<a title="">
@@ -1364,7 +1388,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>诺和龙带量采购</h3>
+											<h3 class="work-title">诺和龙带量采购</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1373,7 +1397,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/e50ed3b8387702295915251377/v.f100840.mp4">
 											<a title="">
@@ -1382,7 +1406,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>阳澄湖税务</h3>
+											<h3 class="work-title">阳澄湖税务</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1391,7 +1415,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/ac96ebf05285890814845013569/v.f100040.mp4">
 											<a title="">
@@ -1400,7 +1424,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>JoyChat-4.0</h3>
+											<h3 class="work-title">JoyChat-4.0</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1410,7 +1434,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b165f1685285890814845234313/v.f100040.mp4">
 											<a title="">
@@ -1419,7 +1443,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>东北大学艺术学院</h3>
+											<h3 class="work-title">东北大学艺术学院</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1429,7 +1453,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/acde3d4e5285890814845051736/v.f100040.mp4">
 											<a title="">
@@ -1438,7 +1462,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>能+</h3>
+											<h3 class="work-title">能+</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1448,7 +1472,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/aeffe2f35285890814845126945/v.f100040.mp4">
 											<a title="">
@@ -1457,7 +1481,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马-培训系统-CN</h3>
+											<h3 class="work-title">宝马-培训系统-CN</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1467,7 +1491,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b38333c85285890814845301507/v.f100040.mp4">
 											<a title="">
@@ -1476,7 +1500,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>途锐黑科技第一支</h3>
+											<h3 class="work-title">途锐黑科技第一支</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1486,7 +1510,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6e2f13135285890814844698104/v.f100040.mp4">
 											<a title="">
@@ -1495,7 +1519,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>东吴人寿大病保险</h3>
+											<h3 class="work-title">东吴人寿大病保险</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1505,7 +1529,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/66d5a7d65285890814844349087/v.f100040.mp4">
 											<a title="">
@@ -1514,7 +1538,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>达喀尔拉力赛</h3>
+											<h3 class="work-title">达喀尔拉力赛</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1524,7 +1548,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/ace2a4995285890814845059838/v.f100040.mp4">
 											<a title="">
@@ -1533,7 +1557,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>吉红冷链-十袋钱的故事</h3>
+											<h3 class="work-title">吉红冷链-十袋钱的故事</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1543,7 +1567,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/ac977c6a5285890814845014652/v.f100040.mp4">
 											<a title="">
@@ -1552,7 +1576,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>龙湖x青岛</h3>
+											<h3 class="work-title">龙湖x青岛</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1562,7 +1586,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6b45e8e65285890814844512403/v.f100040.mp4">
 											<a title="">
@@ -1571,7 +1595,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>廉洁广汽</h3>
+											<h3 class="work-title">廉洁广汽</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1581,7 +1605,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/727e77be5285890814844847767/v.f100040.mp4">
 											<a title="">
@@ -1590,7 +1614,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>地质科普</h3>
+											<h3 class="work-title">地质科普</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1600,7 +1624,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6fdd00e95285890814844700245/v.f100040.mp4">
 											<a title="">
@@ -1609,7 +1633,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>日本领事馆</h3>
+											<h3 class="work-title">日本领事馆</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1619,7 +1643,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/748a142d5285890814844905332/v.f100040.mp4">
 											<a title="">
@@ -1628,7 +1652,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>未检动画-苏州加长版</h3>
+											<h3 class="work-title">未检动画-苏州加长版</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1638,7 +1662,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/727bbdf45285890814844842852/v.f100040.mp4">
 											<a title="">
@@ -1647,7 +1671,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>未检动画-南京版</h3>
+											<h3 class="work-title">未检动画-南京版</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1657,7 +1681,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/723346045285890814844802300/v.f100040.mp4">
 											<a title="">
@@ -1666,7 +1690,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>指静脉识别系统-普通话</h3>
+											<h3 class="work-title">指静脉识别系统-普通话</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1676,7 +1700,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/7232c6ea5285890814844801640/v.f100040.mp4">
 											<a title="">
@@ -1685,7 +1709,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>有趣的少数民族运动</h3>
+											<h3 class="work-title">有趣的少数民族运动</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1695,7 +1719,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6dac23325285890814844620874/v.f100040.mp4">
 											<a title="">
@@ -1704,7 +1728,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>鲜为人知的少数民族</h3>
+											<h3 class="work-title">鲜为人知的少数民族</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1714,7 +1738,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/7233ebeb5285890814844803900/v.f100040.mp4">
 											<a title="">
@@ -1723,7 +1747,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>轻和丽果实餐</h3>
+											<h3 class="work-title">轻和丽果实餐</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1733,7 +1757,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6b7efd795285890814844547738/v.f100040.mp4">
 											<a title="">
@@ -1742,7 +1766,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>云睐-EN</h3>
+											<h3 class="work-title">云睐-EN</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1752,7 +1776,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6b47a3af5285890814844515931/v.f100040.mp4">
 											<a title="">
@@ -1761,7 +1785,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>艾默生比赛</h3>
+											<h3 class="work-title">艾默生比赛</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1771,7 +1795,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6915f98b5285890814844434045/v.f100040.mp4">
 											<a title="">
@@ -1780,7 +1804,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马-生产部门BBT-11</h3>
+											<h3 class="work-title">宝马-生产部门BBT-11</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1789,7 +1813,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6e2c73b95285890814844693862/v.f100040.mp4">
 											<a title="">
@@ -1798,7 +1822,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>星座宝贝-巨蟹座</h3>
+											<h3 class="work-title">星座宝贝-巨蟹座</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1808,7 +1832,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6e2fc1e05285890814844699935/v.f100040.mp4">
 											<a title="">
@@ -1817,7 +1841,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>自媒体Socool片头</h3>
+											<h3 class="work-title">自媒体Socool片头</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1827,7 +1851,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/74f469b25285890814844961092/v.f100040.mp4">
 											<a title="">
@@ -1836,7 +1860,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>几何+</h3>
+											<h3 class="work-title">几何+</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1846,7 +1870,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/701584b05285890814844734461/v.f100040.mp4">
 											<a title="">
@@ -1855,7 +1879,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>万科点线动画</h3>
+											<h3 class="work-title">万科点线动画</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1865,7 +1889,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/74e64e245285890814844958995/v.f100040.mp4">
 											<a title="">
@@ -1874,7 +1898,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>吉红挂车池</h3>
+											<h3 class="work-title">吉红挂车池</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1884,7 +1908,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/6b7c3c165285890814844542695/v.f100040.mp4">
 											<a title="">
@@ -1893,7 +1917,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>2019超吉联赛赛事预热视频</h3>
+											<h3 class="work-title">2019超吉联赛赛事预热视频</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1903,7 +1927,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/bf4027af5285890814845813308/v.f100040.mp4">
 											<a title="">
@@ -1912,7 +1936,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>先锋枢纽</h3>
+											<h3 class="work-title">先锋枢纽</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1921,7 +1945,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b385ed6e5285890814845306409/v.f100040.mp4">
 											<a title="">
@@ -1930,7 +1954,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>四季沐歌-热水管家</h3>
+											<h3 class="work-title">四季沐歌-热水管家</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1939,7 +1963,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/bb05cd7a5285890814845679921/v.f100040.mp4">
 											<a title="">
@@ -1948,7 +1972,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>知乎最牛公式-故事四</h3>
+											<h3 class="work-title">知乎最牛公式-故事四</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1957,7 +1981,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/bd0eb9785285890814845732848/v.f100040.mp4">
 											<a title="">
@@ -1966,7 +1990,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>知乎最牛公式-故事三</h3>
+											<h3 class="work-title">知乎最牛公式-故事三</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1975,7 +1999,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/bb052bfb5285890814845678437/v.f100040.mp4">
 											<a title="">
@@ -1984,7 +2008,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>绿动未来</h3>
+											<h3 class="work-title">绿动未来</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -1993,7 +2017,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b8af843c5285890814845577773/v.f100040.mp4">
 											<a title="">
@@ -2002,7 +2026,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>儿童食品安全</h3>
+											<h3 class="work-title">儿童食品安全</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2011,7 +2035,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b8aef81a5285890814845576790/v.f100040.mp4">
 											<a title="">
@@ -2020,7 +2044,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>高考动画-温馨高考</h3>
+											<h3 class="work-title">高考动画-温馨高考</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2029,7 +2053,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b8acb0ee5285890814845572260/v.f100040.mp4">
 											<a title="">
@@ -2038,7 +2062,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>中华福多多</h3>
+											<h3 class="work-title">中华福多多</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2047,7 +2071,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b416bf625285890814845386799/v.f100040.mp4">
 											<a title="">
@@ -2056,7 +2080,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>康爱长青险</h3>
+											<h3 class="work-title">康爱长青险</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2065,7 +2089,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b67bb0495285890814845492020/v.f100040.mp4">
 											<a title="">
@@ -2074,7 +2098,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>PO天然消臭除菌液</h3>
+											<h3 class="work-title">PO天然消臭除菌液</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2083,7 +2107,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b394c8695285890814845310706/v.f100040.mp4">
 											<a title="">
@@ -2092,7 +2116,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>打击非法集资</h3>
+											<h3 class="work-title">打击非法集资</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2101,7 +2125,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b394af435285890814845310133/v.f100040.mp4">
 											<a title="">
@@ -2110,7 +2134,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>大湾区金融服务-普通话</h3>
+											<h3 class="work-title">大湾区金融服务-普通话</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2119,7 +2143,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b41409ba5285890814845381976/v.f100040.mp4">
 											<a title="">
@@ -2128,7 +2152,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>徽商银行手机号支付</h3>
+											<h3 class="work-title">徽商银行手机号支付</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2137,7 +2161,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b38686f55285890814845307739/v.f100040.mp4">
 											<a title="">
@@ -2146,7 +2170,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>苏州互联网扫描</h3>
+											<h3 class="work-title">苏州互联网扫描</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2155,7 +2179,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b38561f35285890814845305478/v.f100040.mp4">
 											<a title="">
@@ -2164,7 +2188,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>华为主题编辑器</h3>
+											<h3 class="work-title">华为主题编辑器</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2173,7 +2197,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b168391c5285890814845238887/v.f100040.mp4">
 											<a title="">
@@ -2182,7 +2206,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>莆田打假</h3>
+											<h3 class="work-title">莆田打假</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2191,7 +2215,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b131410d5285890814845207075/v.f100040.mp4">
 											<a title="">
@@ -2200,7 +2224,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>中移码店-2.0</h3>
+											<h3 class="work-title">中移码店-2.0</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2209,7 +2233,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/b384402c5285890814845303239/v.f100040.mp4">
 											<a title="">
@@ -2218,7 +2242,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>消防知识科普</h3>
+											<h3 class="work-title">消防知识科普</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2227,7 +2251,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/f9b5d0665285890814846034033/v.f100040.mp4">
 											<a title="">
@@ -2236,7 +2260,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>苏惠宝</h3>
+											<h3 class="work-title">苏惠宝</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2246,7 +2270,7 @@
 									</div>
 								</div><!--作品结束-->
 								
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/9f4c0bbe387702295914584636/v.f100840.mp4">
 											<a title="">
@@ -2255,7 +2279,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>东北大学2020创新创业成绩单</h3>
+											<h3 class="work-title">东北大学2020创新创业成绩单</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2264,7 +2288,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/07d7e50f5285890814846652243/v.f100040.mp4">
 											<a title="">
@@ -2273,7 +2297,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马-社保公积金</h3>
+											<h3 class="work-title">宝马-社保公积金</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2282,7 +2306,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/05bc4c5b5285890814846588175/v.f100040.mp4">
 											<a title="">
@@ -2291,7 +2315,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马-弹性福利</h3>
+											<h3 class="work-title">宝马-弹性福利</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2300,7 +2324,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/05bbd1235285890814846587589/v.f100040.mp4">
 											<a title="">
@@ -2309,7 +2333,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马-垃圾分类</h3>
+											<h3 class="work-title">宝马-垃圾分类</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2318,7 +2342,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/031c9c2b5285890814846444411/v.f100040.mp4">
 											<a title="">
@@ -2327,7 +2351,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马-动火作业</h3>
+											<h3 class="work-title">宝马-动火作业</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2336,7 +2360,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/fecb1c315285890814846291327/v.f100040.mp4">
 											<a title="">
@@ -2345,7 +2369,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马工厂-EN</h3>
+											<h3 class="work-title">宝马工厂-EN</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2354,7 +2378,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/0123149d5285890814846396792/v.f100040.mp4">
 											<a title="">
@@ -2363,7 +2387,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>国家电网-演讲比赛</h3>
+											<h3 class="work-title">国家电网-演讲比赛</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2372,7 +2396,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/00b8227c5285890814846339695/v.f100040.mp4">
 											<a title="">
@@ -2381,7 +2405,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>推优入党</h3>
+											<h3 class="work-title">推优入党</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2390,7 +2414,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/febcce585285890814846288085/v.f100040.mp4">
 											<a title="">
@@ -2399,7 +2423,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>泰禾信息化</h3>
+											<h3 class="work-title">泰禾信息化</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2408,7 +2432,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/00b788d45285890814846338355/v.f100040.mp4">
 											<a title="">
@@ -2417,7 +2441,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>捷豹路虎</h3>
+											<h3 class="work-title">捷豹路虎</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2426,7 +2450,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/0120c44a5285890814846392012/v.f100040.mp4">
 											<a title="">
@@ -2435,7 +2459,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>宝马段长培训-合集</h3>
+											<h3 class="work-title">宝马段长培训-合集</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2444,7 +2468,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/febaaccc5285890814846284401/v.f100040.mp4">
 											<a title="">
@@ -2453,7 +2477,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>艾默生颁奖动画</h3>
+											<h3 class="work-title">艾默生颁奖动画</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2463,7 +2487,7 @@
 									</div>
 								</div><!--作品结束-->
 
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/09d54d735285890814846707192/v.f100040.mp4">
 											<a title="">
@@ -2472,7 +2496,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>G7-网站展示</h3>
+											<h3 class="work-title">G7-网站展示</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2481,7 +2505,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/a5dcb3eb387702295914820300/v.f100840.mp4">
 											<a title="">
@@ -2490,7 +2514,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>吉红租挂</h3>
+											<h3 class="work-title">吉红租挂</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2499,7 +2523,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/07d8f4cc5285890814846654004/v.f100040.mp4">
 											<a title="">
@@ -2508,7 +2532,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>G7-大数据</h3>
+											<h3 class="work-title">G7-大数据</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2517,7 +2541,7 @@
 										</div>
 									</div>
 								</div><!--作品结束-->
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><!--作品开始--> 
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth work-item"><!--作品开始--> 
 									<div class="videoo"> 
 										<div class="vid_thumbainl m-video" data-src="http://1305061867.vod2.myqcloud.com/dbd8ee6fvodtranscq1305061867/09d33d935285890814846703961/v.f100040.mp4">
 											<a title="">
@@ -2526,7 +2550,7 @@
 											</a> 
 										</div>
 										<div class="video_info">
-											<h3>太平资讯平台</h3>
+											<h3 class="work-title">太平资讯平台</h3>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
 											<a target="_blank" class="tag-grey"></a>
@@ -2564,6 +2588,24 @@
 
 	</div>
 
+	<script>
+		// 过滤函数
+		function filterWorks() {
+		 let searchQuery = document.getElementById('searchInput').value.toLowerCase();  // 获取用户输入的关键词
+		 let works = document.querySelectorAll('.work-item');  // 获取所有作品项
+
+		 works.forEach(function(work) {
+		 let title = work.querySelector('.work-title').textContent.toLowerCase();  // 获取每个作品的标题
+
+		 // 判断标题中是否包含搜索关键词
+		 if (title.includes(searchQuery)) {
+		 work.style.display = '';  // 显示匹配的作品
+		 } else {
+		 work.style.display = 'none';  // 隐藏不匹配的作品
+		 }
+		 });
+		}
+	</script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/modal_video.js"></script>
 	<script src="js/bootstrap.min.js"></script>
