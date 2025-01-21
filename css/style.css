@@ -179,7 +179,8 @@ button:hover,
     font-weight: 300;
     font-style: normal;
     line-height: 25px;
-	white-space: nowrap;
+	word-wrap: break-word;
+    overflow-wrap: break-word;
 	color: #747C8D;
 }
 
